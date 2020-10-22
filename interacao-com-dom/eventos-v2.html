@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">  
+    <p>{{ contador }}</p>
+    <p v-on:mousemove="atualizarXY">Mouse {{ x }} e {{ y }}
+      <span v-on:mousemove.stop>PARAR AQUI</span>
+    </p>
+    <button v-on:click="somaMaisUmMonte(5, $event)">Somar 1</button>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        contador: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        somaMaisUmMonte(passo, event) {
+          console.log(passo, event)
+          this.contador += passo
+        },
+        atualizarXY(event) {
+          console.log(event)
+          this.x = event.clientX
+          this.y = event.clientY
+        },
+        // parar(event) {
+        //   event.stopPropagation()
+        // }
+      }
+    })
+  </script>
+</body>
+</html>

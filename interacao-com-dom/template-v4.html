@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+  <div id="app">
+    <input type="text" v-on:input="alterarTitulo">
+     <!-- essa propriedade do vue é utilizada para fazer com que o valor seja lido apenas uma vez -->
+    <p v-once>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <!-- v-bind serve para interpolar um dado da minha instância vue com uma propriedade na minha dom -->
+    <a v-bind:href="link">Google</a> 
+  </div>
+  
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        titulo: 'VueJS',
+        link: 'http://www.google.com.br'
+      },
+      methods: {
+        alterarTitulo(event) {
+          this.titulo = event.target.value;
+        },
+        saudacao: function() {
+          this.titulo = 'O nome foi alterado!'
+          return this.titulo
+        },
+
+
+
+      }
+    })
+  </script>
+
+</body>
+</html>
