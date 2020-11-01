@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  
+  <div id="desafio">
+    <div>
+      <p>Valor atual: {{ valor }}</p>
+      <button @click="valor += 5">Somar 5</button>
+      <button @click="valor += 1">Somar 1</button>
+      <!-- <p>Resultado: {{ valor != 37 ? 'Valor diferente' : 'Valor igual'}}</p> -->
+      <p >{{ resultado }}</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
