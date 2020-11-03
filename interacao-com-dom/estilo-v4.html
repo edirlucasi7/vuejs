@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <style>
+    .caixa {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+    }
+  </style>
+  
+  <div id="app">
+    <div class="caixa">
+      <div class="demo" :style="{'background-color': cor}"></div>
+      <div class="demo" :style="[meuEstilo, {'height': altura}]"></div>
+      <div class="demo"></div>
+    </div>
+    <hr>
+    <input type="text" v-model="cor">
+    <input type="text" v-model="largura">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        cor: 'red',
+        largura: 20,
+        altura: 5 + 'px'
+      },
+      computed: {
+        meuEstilo() {
+          return {
+            backgroundColor: this.cor,
+            width: this.largura + 'px',
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

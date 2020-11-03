@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <style>
+    .caixa {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+    }
+
+    .c1 {
+      background-color: red;
+    }
+
+    .c2 {
+      background-color: green;
+    }
+
+    .c3 {
+      background-color: blue;
+    }
+
+    .girar {
+      transform: rotate(45deg);
+    }
+  </style>
+  
+  <div id="app">
+    <div class="caixa">
+      <div class="demo" :class="aplicar" 
+      @click="aplicarC1 = !aplicarC1"></div>
+      <div class="demo"></div>
+      <div class="demo" :class="[aplicarCSS, {'girar': aplicarGirar}]"></div>
+    </div>
+    <hr>
+    <input type="text" v-model="aplicarCSS">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        aplicarC1: false,
+        aplicarCSS: 'c1',
+        aplicarGirar: true
+      },
+      computed: {
+        aplicar() {
+          return {
+            c1: this.aplicarC1,
+            c2: !this.aplicarC1
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
