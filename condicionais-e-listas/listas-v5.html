@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(cor, i) in cores"
+      :key="cor">{{ i + 1}}) {{ cor }}</li>
+    </ul>
+    <button @click="cores.push('branca')">Adicionar</button>
+    <hr>
+    <ul>
+      <li v-for="pessoa in pessoas">
+        <span v-for="(valor, chave, index) in pessoa">
+          {{ valor }} = {{ chave }} ({{ index + 1 }})
+        </span>
+      </li>
+    </ul>
+    <hr>
+    <span v-for="n in 10">{{ n }}</span>
+    <hr>
+    <div v-for="n in 10">{{ n }}</div>
+
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        cores: ['vermelho', 'amarela', 'verde', 'azul'],
+        pessoas: [
+          { nome: 'Lucas', idade: 24, sexo: 'M' },
+          {nome: 'Yarice', idade: 19, sexo: 'F'},
+          {nome: 'Maria Luíza', idade: 2, sexo: 'F'},
+          {nome: 'Bernardo', idade: 1, sexo: 'M'} 
+        ]
+      }
+    })
+  </script>
+
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    h1, p {
+      display: inline;
+    }
+  </style>
+</body>
+</html>
