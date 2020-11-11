@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+}
+
+.barra__progresso {
+  display: flex;
+  justify-content: space-between;
+}
+
+.barra__progresso.left {
+  padding: 60px 10px 20px 110px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.barra__progresso.right {
+  padding: 60px 110px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.barra__progresso.jogador {
+  margin-top: 25px;
+  width: 500px;
+  height: 20px;
+  border: 1px solid rgb(116, 116, 116);
+  background-color: green;
+}
+
+.barra__progresso.monstro {
+  margin-top: 25px;
+  width: 450px;
+  height: 20px;
+  border: 1px solid rgb(116, 116, 116);
+  background-color: red;
+}
+
+.button__actions {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.button__actions.ataque {
+  margin-right: 15px;
+  background-color: red;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+}
+
+.button__actions.especial {
+  margin-right: 15px;
+  background-color: orange;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid orange;
+  color: black;
+}
+
+.button__actions.curar {
+  margin-right: 15px;
+  background-color: green;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid green;
+  color: white;
+}
+
+.button__actions.desistir {
+  margin-right: 15px;
+  background-color: grey;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: black;
+}
