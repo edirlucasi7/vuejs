@@ -6,12 +6,21 @@
 
 p {
   font-family: Arial, sans-serif;
-  font-size: 30px;
 }
 
 .barra__progresso {
   display: flex;
   justify-content: space-between;
+  font-weight: 300
+}
+
+.barra__progresso.left h1 {
+  font-weight: 300;
+  font-size: 1.9rem;
+}
+.barra__progresso.right h1 {
+  font-weight: 300;
+  font-size: 1.9rem;
 }
 
 .barra__progresso.left {
@@ -30,10 +39,23 @@ p {
 
 .barra__progresso.jogador {
   margin-top: 25px;
-  width: 500px;
+  width: 450px;
   height: 20px;
   border: 1px solid rgb(116, 116, 116);
+}
+
+.progresso-jogador {
   background-color: green;
+  height: 100%;
+  width: 50%;
+}
+
+.progresso-jogador.danger {
+  background-color: red;
+}
+
+.progresso-monstro.danger {
+  background-color: red;
 }
 
 .barra__progresso.monstro {
@@ -41,7 +63,27 @@ p {
   width: 450px;
   height: 20px;
   border: 1px solid rgb(116, 116, 116);
-  background-color: red;
+}
+
+.progresso-monstro {
+  background-color: green;
+  height: 100%;
+  width: 60%;
+}
+
+.painel__resultado {
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 1.5rem;
+}
+
+.resultado.active {
+  color: green;
+}
+
+.resultado:not(.active) {
+  color: red;
 }
 
 .button__actions {
@@ -50,12 +92,21 @@ p {
   text-align: center;
 }
 
+.button__actions.inicar {
+  margin-right: 15px;
+  background-color: rgb(68, 68, 207);
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(68, 68, 207);
+  color: white;
+}
+
 .button__actions.ataque {
   margin-right: 15px;
   background-color: red;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid red;
   color: white;
 }
 
@@ -84,4 +135,29 @@ p {
   border-radius: 5px;
   border: 1px solid grey;
   color: black;
+}
+
+.logs ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.logs ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.jogadorLogs {
+  background-color: rgb(0, 60, 151, 0.7);
+  color: white;
+}
+
+.monstroLogs {
+  background-color: rgb(194, 11, 11, 0.7);
+  color: white;
 }

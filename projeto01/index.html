@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,67 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/vue"></script>
 </head>
+
 <body>
-  
+
   <div id="projeto01">
     <div class="barra__progresso">
       <div class="barra__progresso left">
-        <p>Jogador</p>
-        <div class="barra__progresso jogador"></div>
+        <h1>Jogador</h1>
+        <div class="barra__progresso jogador">
+          <div class="progresso-jogador"
+            :class="{danger: vidaJogador < 20}"
+            :style="{width: vidaJogador + '%'}"></div>
+        </div>
+        <div>{{ vidaJogador }}%</div>
       </div>
       <div class="barra__progresso right">
-        <p>Monstro</p>
-        <div class="barra__progresso monstro"></div>
+        <h1>Monstro</h1>
+        <div class="barra__progresso monstro">
+          <div class="progresso-monstro"
+            :class="{danger: vidaMonstro < 20}"
+            :style="{width: vidaMonstro + '%'}"></div>
+        </div>
+        <div>{{ vidaMonstro }}%</div>
       </div>
+    </div>
+    <div v-if="hasResult" class="painel__resultado">
+      <hr>
+      <div v-if="vidaMonstro == 0" class="resultado active ganhou">Você ganhou! :)</div>
+      <div v-else class="resultado perdeu">Você perdeu! :(</div>
+    </div>
+    <div>
+
     </div>
     <hr>
     <div class="button__actions">
-      <button class="button__actions ataque">&nbsp;&nbsp;ATAQUE&nbsp;&nbsp;</button>
-      <button class="button__actions especial">&nbsp;&nbsp;ATAQUE ESPECIAL&nbsp;&nbsp;</button>
-      <button class="button__actions curar">&nbsp;&nbsp;CURAR&nbsp;&nbsp;</button>
-      <button class="button__actions desistir">&nbsp;&nbsp;DESISTIR&nbsp;&nbsp;</button>
+      <template v-if="iniciarJogo">
+        <button class="button__actions ataque" @click="atacar(false)">&nbsp;&nbsp;
+          ATAQUE&nbsp;&nbsp;</button>
+        <button class="button__actions especial" @click="atacar(true)">&nbsp;
+          &nbsp;ATAQUE ESPECIAL&nbsp;&nbsp;</button>
+        <button class="button__actions curar" @click="curar()">&nbsp;&nbsp;
+          CURAR&nbsp;&nbsp;</button>
+        <button @click="iniciarJogo = false"
+          class="button__actions desistir">&nbsp;&nbsp;DESISTIR&nbsp;&nbsp;</button>
+      </template>
+      <button v-else @click="começarJogo()" class="button__actions inicar">&nbsp;&nbsp;INICIAR
+        NOVO JOGO&nbsp;&nbsp;</button>
     </div>
     <hr>
+    <div v-if="logs.length" class="logs">
+      <div class="teste">
+        <ul>
+          <li v-for="log in logs"
+              :class="log.cls"
+              class="log"> {{ log.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

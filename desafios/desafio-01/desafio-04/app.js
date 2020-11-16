@@ -36,7 +36,6 @@ new Vue({
 				this.width = `${valor}%`
 				if(valor == 100) clearInterval(temporizador) 
 			}, 1000)
-
 		}
 	}
 })
