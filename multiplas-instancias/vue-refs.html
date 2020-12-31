@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <h1 ref="aulaRef">{{ aula }}</h1>
+    <h2>{{ modulo }}</h2>
+    <button @click="adicionarAula">Alterar Aula</button>
+    <button @click="adicionarModulo">Alterar Módulo</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        aula: "Aula: Usando Refs",
+        modulo: 'Módulo: Instância Vue'
+      },
+      methods: {
+        adicionarAula() {
+          this.aula += '#';
+        },
+        adicionarModulo() {
+          this.modulo += '#';
+          console.log(this.$refs.aulaRef);
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
