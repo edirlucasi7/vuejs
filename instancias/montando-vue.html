@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+  </div>
+  
+  <script>
+    const vm = new Vue({
+      template: `
+      <div>
+        <h1>{{ titulo1 }}</h1>
+        <h1>{{ titulo2 }}</h1>
+        <button @click="adicionar">adicionar</button>
+        <button @click="alterar">adicionar</button>
+      </div>
+      `,
+      data: {
+        titulo1: 'Teste1',
+        titulo2: 'Teste2'
+      },
+      methods: {
+        adicionar() {
+          vm.titulo1 += '???';
+        },
+        alterar() {
+          vm.titulo2 += '!!!';
+        }
+      }
+    })
+
+    vm.$mount('#app')
+    // vm.$mount()
+    // document.querySelector('#app').appendChild(vm.$el)
+  </script>
+</body>
+
+</html>
