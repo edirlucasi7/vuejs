@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instancia Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+    <button @click="titulo += '#'">Aterar título</button>
+    <button @click="$destroy()">Destruindo</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        titulo: "Entendendo a instância do VUE"
+      },
+      beforeCreate() {
+        console.log("Antes de criar")
+      },
+      created() {
+        console.log("Criado")
+      },
+      beforeMount() {
+        console.log("Antes de montar a DOM")
+      },
+      mounted() {
+        console.log("Montando a Dom")
+      },
+      beforeUpdate() {
+        console.log("Antes de Atualizar")
+      },
+      updated() {
+        console.log("Atualizado")
+      },
+      beforeDestroy() {
+        console.log("Antes de destruir")
+      },
+      destroyed() {
+        console.log("Acaba o cilco de vida")
+      }
+    })
+  </script>
+  
+</body>
+</html>
