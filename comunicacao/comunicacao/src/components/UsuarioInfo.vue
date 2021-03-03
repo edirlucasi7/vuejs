@@ -4,6 +4,7 @@
         <p>Vários detalhes...</p>
         <p>O nome do usuário é: <strong>{{ inverterNome() }}</strong></p>
         <button @click="retornarNome">Retornar Nome</button>
+        <button @click="reiniciarFn">Reiniciar Nome (Callback)</button>
     </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
             //     return Array(10).fill(0).join(', ')
             // }
             default: 'Anônimo'
-        }
+        },
+        reiniciarFn: Function
     },
     data() {
         return {
