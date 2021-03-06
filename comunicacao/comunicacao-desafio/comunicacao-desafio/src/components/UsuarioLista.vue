@@ -24,6 +24,7 @@ export default {
         emitirEvento(usuario) {
             var posicao = this.usuarios.indexOf(usuario)
             this.$emit('infomacaoUsuario', this.usuarios[posicao]) 
+            this.usuarios.pop()
         }
     }
 }
